@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Tagger Test Page</title>
+  <link rel="stylesheet" href="test.css">
+</head>
+<body>
+  <h1>Image Carousel</h1>
+  <div class="carousel">
+    <button id="prev">Back</button>
+    <img id="carousel-image" src="slide1.jpg" alt="Slide">
+    <button id="next">Next</button>
+  </div>
+
+  <script>
+    let index = 0;
+    const images = ["slide1.jpg", "slide2.jpg", "slide3.jpg"];
+
+    <!-- AI-START AI-1003 -->
+    function showSlide(i) {
+      const img = document.getElementById("carousel-image");
+      img.src = images[i];
+    }
+    <!-- AI-END AI-1003 -->
+
+    document.getElementById("next").addEventListener("click", () => {
+      index = (index + 1) % images.length;
+      showSlide(index);
+    });
+
+    document.getElementById("prev").addEventListener("click", () => {
+      index = (index - 1 + images.length) % images.length;
+      showSlide(index);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+{
+  "name": "AICodeTagger",
+  "displayName": "AI Code Tagger",
+  "description": "Tag AI-generated code on paste and log it to ai-log.csv for teacher review.",
+  "version": "0.1.0",
+  "publisher": "AICodeTagger",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "aiTagger.tag",
+        "title": "Tag AI Code"
+      },
+      {
+        "command": "aiTagger.edit",
+        "title": "Edit AI Tag"
+      },
+      {
+        "command": "aiTagger.remove",
+        "title": "Remove AI Tag"
+      },
+      {
+        "command": "aiTagger.validate",
+        "title": "Validate AI Tags"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "aiTagger.tag",
+          "when": "editorHasSelection",
+          "group": "9_cutcopypaste"
+        },
+        {
+          "command": "aiTagger.edit",
+          "when": "editorTextFocus",
+          "group": "9_cutcopypaste"
+        },
+        {
+          "command": "aiTagger.remove",
+          "when": "editorTextFocus",
+          "group": "9_cutcopypaste"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "aiTagger.tag"
+        },
+        {
+          "command": "aiTagger.edit"
+        },
+        {
+          "command": "aiTagger.remove"
+        },
+        {
+          "command": "aiTagger.validate"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "AI Code Tagger",
+      "properties": {
+        "aiTagger.studentName": {
+          "type": "string",
+          "default": "",
+          "description": "Pre-fills the student name field when tagging AI code."
+        },
+        "aiTagger.defaultEngine": {
+          "type": "string",
+          "default": "",
+          "enum": [
+            "",
+            "ChatGPT",
+            "Claude",
+            "Copilot",
+            "Gemini",
+            "Other"
+          ],
+          "description": "Pre-selects the AI engine in the tagging form."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "package": "node esbuild.js --production",
+    "vscode:prepublish": "npm run package",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test",
+    "unit-test": "node --import tsx --test src/test/*.unit.test.ts"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.90.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "esbuild": "^0.23.0",
+    "eslint": "^9.9.0",
+    "tsx": "^4.17.0",
+    "typescript": "^5.5.4"
+  }
+}
