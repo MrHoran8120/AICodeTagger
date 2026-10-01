@@ -2,7 +2,7 @@
   "name": "AICodeTagger",
   "displayName": "AI Code Tagger",
   "description": "Tag AI-generated code on paste and log it to ai-log.csv for teacher review.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "publisher": "AICodeTagger",
   "engines": {
     "vscode": "^1.90.0"
