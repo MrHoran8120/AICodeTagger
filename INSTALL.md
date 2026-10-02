@@ -4,7 +4,7 @@ The extension is distributed as a single `.vsix` file — no Node.js, npm, or ot
 
 ## Install from the .vsix file
 
-1. Get the `.vsix` file from your teacher (shared via the school LMS, a drive link, etc.) — e.g. `AICodeTagger-0.1.0.vsix`.
+1. Download `AICodeTagger-1.0.0.vsix` from the [v1.0.0 release page](https://github.com/MrHoran8120/AICodeTagger/releases/tag/v1.0.0) (under **Assets**), or get it from your teacher (shared via the school LMS, a drive link, etc.).
 2. In VS Code, open the Extensions view (`Ctrl+Shift+X`).
 3. Click the **"..."** menu at the top of the Extensions view → **Install from VSIX...**
 4. Select the `.vsix` file you downloaded.
@@ -15,7 +15,7 @@ The extension is distributed as a single `.vsix` file — no Node.js, npm, or ot
 If you'd rather use a terminal:
 
 ```
-code --install-extension AICodeTagger-0.1.0.vsix
+code --install-extension AICodeTagger-1.0.0.vsix
 ```
 
 ## Confirm it installed
@@ -39,7 +39,7 @@ Leave `aiTagger.studentName` blank (each student should fill in their own name) 
 
 ## Updating
 
-To update to a newer version, repeat the install steps above with the new `.vsix` file — it will replace the old version. Reload the window afterward.
+To update to a newer version, download the latest `.vsix` from the [Releases page](https://github.com/MrHoran8120/AICodeTagger/releases) and repeat the install steps above — it will replace the old version. Reload the window afterward.
 
 ## Uninstalling
 
